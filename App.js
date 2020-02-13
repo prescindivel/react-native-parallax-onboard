@@ -1,18 +1,24 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Value } from 'react-native-reanimated';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-const App = () => (
-  <View>
-    <Text>Hello</Text>
-  </View>
-);
+import { ParallaxOnboard, ParallaxOnboardPage } from './src';
+
+const App = () => {
+  const animatedValue = new Value(0);
+
+  return (
+    <SafeAreaProvider>
+      <ParallaxOnboard
+        speed={0.5}
+        animatedValue={animatedValue}
+        dividerWidth={1}
+      >
+        <Text>Hello</Text>
+      </ParallaxOnboard>
+    </SafeAreaProvider>
+  );
+};
 
 export default App;
